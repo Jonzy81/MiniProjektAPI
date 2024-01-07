@@ -35,4 +35,4 @@ ___
 
 ---
 
-![My Diagram](Namnlöst diagram.drawio.svg)
+![My Diagram](Classdiagram.drawio.svg)
