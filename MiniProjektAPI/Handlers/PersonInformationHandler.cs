@@ -1,5 +1,6 @@
 ﻿using MiniProjektAPI.Data;
 using MiniProjektAPI.Model.DTO;
+using MiniProjektAPI.Model.ViewModel;
 using System.Net;
 
 
@@ -17,6 +18,18 @@ namespace MiniProjektAPI.Handlers
             });
             context.SaveChanges();
             return Results.StatusCode((int)HttpStatusCode.Created);
+        }
+        public static IResult ListAllMembers(ApplicationContext context)
+        {
+            PersonListViewModel[] result =
+                context.Persons
+                .Select(b => new PersonListViewModel()
+                {
+                    FirstName = b.FirstName,
+                    LastName = b.LastName,
+                    PhoneNumber = b.PhoneNumber,
+                }).ToArray();
+            return Results.Json(result);
         }
     }
 }

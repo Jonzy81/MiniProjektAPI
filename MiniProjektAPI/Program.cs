@@ -14,11 +14,16 @@ namespace MiniProjektAPI
             var app = builder.Build();
 
             app.MapGet("/", () => "Hello World!");
-            //Add Users
-            app.MapPost("/User", PersonInformationHandler.AddNewUser);
-            //Add Interest
-            app.MapPost("/person/{id}/interests", InterestHandler.AddInterest);
+            //Users
+            app.MapPost("/User", PersonInformationHandler.AddNewUser);  //Doesnt show the id, i can change it in dto later
+            app.MapGet("/User", PersonInformationHandler.ListAllMembers);
 
+            //Add Interest
+            app.MapPost("/user/{id}/interests", InterestHandler.AddInterest);
+            app.MapPost("/user/{personId}/interests/{interestId}", InterestHandler.AssignInterestToMember);
+            app.MapGet("/user/{id}", InterestHandler.ShowMemberInterest);
+            //Add link 
+            app.MapPost("/user/{personId}/interest/{interestId}/addLink",LinkHandler.AddNewLink);
             app.Run();
         }
     }
