@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MiniProjektAPI.Data;
+using MiniProjektAPI.Handlers;
 
 namespace MiniProjektAPI
 {
@@ -13,6 +14,10 @@ namespace MiniProjektAPI
             var app = builder.Build();
 
             app.MapGet("/", () => "Hello World!");
+            //Add Users
+            app.MapPost("/User", PersonInformationHandler.AddNewUser);
+            //Add Interest
+            app.MapPost("/person/{id}/interests", InterestHandler.AddInterest);
 
             app.Run();
         }
