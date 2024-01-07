@@ -28,3 +28,11 @@ The following endpoints can be used to interact with the API, dont forget to use
 **Show user links:**   
     GET /user/{id}/links
 
+___
+
+      
+![My Diagram](APIflödesDiagrambild.drawio.svg)
+
+---
+
+![My Diagram](Namnlöst diagram.drawio.svg)
