@@ -10,9 +10,9 @@
 
 - [X]  Hämta alla personer i systemet
 - [X]  Hämta alla intressen som är kopplade till en specifik person
-- [ ]  Hämta alla länkar som är kopplade till en specifik person
-- [ ]  Koppla en person till ett nytt intresse
-- [ ]  Lägga in nya länkar för en specifik person och ett specifikt intresse
+- [X]  Hämta alla länkar som är kopplade till en specifik person
+- [X]  Koppla en person till ett nytt intresse
+- [X]  Lägga in nya länkar för en specifik person och ett specifikt intresse
 
 	   Här följer kraven på databasen:
 - [ ]  Skapa ett ER-schema för databasen

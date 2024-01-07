@@ -2,6 +2,7 @@
 using MiniProjektAPI.Data;
 using MiniProjektAPI.Model;
 using MiniProjektAPI.Model.DTO;
+using MiniProjektAPI.Model.ViewModel;
 using System.Net;
 
 namespace MiniProjektAPI.Handlers
@@ -44,6 +45,23 @@ namespace MiniProjektAPI.Handlers
             context.SaveChanges();
 
             return Results.StatusCode((int)HttpStatusCode.Created);
+        }
+        public static IResult ShowLinksForMember(ApplicationContext context, int id)
+        {
+            var person = context.Persons
+                .Include(p => p.WebLinks)
+                .FirstOrDefault(p => p.Id == id);
+            if (person == null)
+            {
+                return Results.NotFound("Person not found");
+            }
+            var result = person.WebLinks
+                .Select(r => new InterestLinksViewModel
+                {
+                    WebLinks= r.WebLinks,
+                }).ToArray();
+            return Results.Json(result);
+           
         }
     }
 }
