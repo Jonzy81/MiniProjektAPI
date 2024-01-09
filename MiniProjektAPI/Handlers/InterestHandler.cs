@@ -32,7 +32,7 @@ namespace MiniProjektAPI.Handlers
 
         public static IResult AssignInterestToMember(ApplicationContext context, int personId, int interestId)
         {
-            var person = context.Persons
+            var person = context.Persons    //Var är ett hjälpvertyg som säger fyll i när vi kompilerar, ett alternativ hade varit att skriva Person istället
                 .Include(p => p.Interests)
                 .SingleOrDefault(p => p.Id == personId);
             var interest = context.Interests.Find(interestId);

@@ -24,7 +24,7 @@ namespace MiniProjektAPI
             app.MapGet("/user/{id}", InterestHandler.ShowMemberInterest);
             
             //link 
-            app.MapPost("/user/{personId}/interest/{interestId}/addLink",LinkHandler.AddNewLink);
+            app.MapPost("/user/{personId}/interest/{interestId}/links",LinkHandler.AddNewLink);
             app.MapGet("user/{id}/links", LinkHandler.ShowLinksForMember);
 
             app.Run();
